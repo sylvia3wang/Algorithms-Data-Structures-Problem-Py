@@ -10,8 +10,8 @@ class Solution:
         answer = float('inf')
         sum2index = {0:0}  #create a hashmap to store the prefix_sum of current prefix_index
         for end in range(len(nums)):
-            if prefix_sum[end + 1] - k in sum2index: #the amount of prefixsum is 1 more than the len(array), there is a 0 before the 0+0 in sum_
-                length = end + 1 - sum2index[prefix_sum[end+1]-k]
+            if prefix_sum[end + 1] - k in sum2index: #the amount of prefixsum is 1 more than the len(array), there is a 0 before the 0+0 in sum_.Here satisfied there is a subarray = k
+                length = end + 1 - sum2index[prefix_sum[end+1]-k] #dont for get length always need to plus 1. 
                 answer = min(answer, length)
             sum2index[prefix_sum[end + 1]] = end + 1
         return answer
@@ -26,16 +26,13 @@ class Solution:
 
 # Description
 # Given an array of integers and an integer k, you need to find the minimum size of continuous subarrays whose sum equals to k, and return its length.
-
 # if there are no such subarray, return -1.
-
 # the integer nums[i] may lower than 0
 
 
 
 
-# Example1
-
+# Example1:
 # Input: nums = [1,1,1,2] and k = 3
 # Output: 2
 
