@@ -11,7 +11,7 @@ class Solution:
         sum2index = {0:0}  #create a hashmap to store the prefix_sum of current prefix_index
         for end in range(len(nums)):
             if prefix_sum[end + 1] - k in sum2index: #the amount of prefixsum is 1 more than the len(array), there is a 0 before the 0+0 in sum_.Here satisfied there is a subarray = k
-                length = end + 1 - sum2index[prefix_sum[end+1]-k] #dont for get length always need to plus 1. 
+                length = end + 1 - sum2index[prefix_sum[end+1]-k] #dont forget "length" always need to plus 1. 
                 answer = min(answer, length)
             sum2index[prefix_sum[end + 1]] = end + 1
         return answer
